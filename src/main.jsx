@@ -8,8 +8,8 @@ import Footer from './components/Footer.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Navbar />
     <Body>
-      <Navbar />
       <App />
       <Footer />
     </Body>

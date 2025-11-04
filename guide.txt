@@ -69,5 +69,9 @@ Pair this palette with fonts like:
 Montserrat, Poppins, or Inter for headings.
 Roboto, Open Sans, or Source Code Pro for body and code-like text.
 
+imported fonts:
+Montserrat, Source Code Pro
+
+
 The combination gives a sleek, developer aesthetic — perfect for portfolios,
  dashboards, or tech-focused resumes.

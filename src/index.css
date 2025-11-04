@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import "tailwindcss";
 
+:root {
+  background: #0A192F;
+  scroll-padding-top: 80px;
+  /* Navbar height */
+}
 
-.body-background {
+
+/* .body-background {
   background: linear-gradient(135deg, #0A192F, #112240);
   min-height: 100vh;
   color: white;
   display: flex;
   flex-direction: column;
-}
+} */
