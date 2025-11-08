@@ -1,0 +1,19 @@
+/* Montserrat font */
+.glass-navbar,
+.footer-content {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Source code pro font */
+.panels-content,
+.home-content,
+.project-content {
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    flex: 0 0 auto;
+    font-style: normal;
+}
