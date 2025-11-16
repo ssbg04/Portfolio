@@ -40,7 +40,7 @@ const Footer = () => {
                         <ul className="list-unstyled mb-0">
                             <li><a href="mailto:crischarlesgarcia345@gmail.com" className={linkClass}>crischarlesgarcia345@gmail.com</a></li>
                             <li><a href="tel:+639914970689" className={linkClass}>+63 991 4970 689</a></li>
-                            <li><a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className={linkClass}>LinkedIn</a></li>
+                            <li><a href="https://www.linkedin.com/in/cris-charles-garcia-187415303/" target="_blank" rel="noopener noreferrer" className={linkClass}>LinkedIn</a></li>
                             <li><a href="https://github.com/ssbg04" target="_blank" rel="noopener noreferrer" className={linkClass}>GitHub</a></li>
                         </ul>
                     </div>
