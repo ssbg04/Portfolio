@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap');
+
+#root,
+html {
+  font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Add this in your CSS file */
+.navbar-blur {
+  background-color: rgba(255, 255, 255, 0.6);
+  /* semi-transparent for light theme */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* for Safari */
+}
+
+.navbar-blur-dark {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
