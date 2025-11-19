@@ -12,14 +12,14 @@ const Projects = () => {
             tech: ["C# WinForms", "MySQL"],
             description: "A library management system built with C# WinForms and MySQL for handling book records, members, and borrowing/returning processes.",
             github: "https://github.com/yourusername/library-system",
-            showcase: "https://www.youtube.com/embed/qfId3bT3Trw?si=Yh8OydbmF-t2GI0q"
+            showcase: "Screenshots or demo video of Library System."
         },
         {
             title: "Tiny College System",
             tech: ["PHP", "MySQL"],
             description: "A small-scale college management system for managing students, courses, and grades using PHP and MySQL.",
             github: "https://github.com/yourusername/tiny-college-system",
-            showcase: "https://www.youtube.com/embed/EMSAEKeloC8?si=Un1QLgULwP1nh1lp"
+            showcase: ""Screenshots or demo video of Tiny College System."
         },
         {
             title: "UniMarket E-Commerce Platform",
