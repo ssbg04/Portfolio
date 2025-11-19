@@ -19,7 +19,7 @@ const Projects = () => {
             tech: ["PHP", "MySQL"],
             description: "A small-scale college management system for managing students, courses, and grades using PHP and MySQL.",
             github: "https://github.com/yourusername/tiny-college-system",
-            showcase: ""Screenshots or demo video of Tiny College System."
+            showcase: "Screenshots or demo video of Tiny College System."
         },
         {
             title: "UniMarket E-Commerce Platform",
