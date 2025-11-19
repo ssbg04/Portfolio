@@ -1,139 +1,96 @@
-import React, { useState } from 'react';
-import '../styles/navbar.css'
+import React from 'react';
+import { Sun, Moon, Zap } from 'lucide-react';
+import useTheme from '../hooks/useTheme';
+import '../index.css'
 
-function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
-    const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        const offset = 100; // height of navbar in pixels
-        if (element) {
-            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-            window.scrollTo({
-                top: elementPosition - offset,
-                behavior: 'smooth',
-            });
-        }
+const Navbar = () => {
+    const { mode, setMode, theme } = useTheme();
+
+    const navLinks = ['home', 'about', 'projects', 'contact'];
+
+    const modeIcons = {
+        light: <Sun className="w-4 h-4" />,
+        dark: <Moon className="w-4 h-4" />,
+        system: <Zap className="w-4 h-4" />,
     };
 
-    return (
-        <header className="navbar bg-[#112240]/20 backdrop-blur-sm text-[#ffffff] sticky top-0 z-50 shadow-sm shadow-[#52E0C4]/20">
-            {/* Container with responsive margins */}
-            <div className="container mx-auto px-4 md:px-6 lg:px-24 flex items-center justify-between py-4">
-                {/* Brand */}
-                <span
-                    className="font-bold text-2xl hover:text-[#52E0C4] cursor-pointer transition-colors duration-200"
-                    onClick={() => scrollToSection("home")}
-                >
-                    <h1>Portfolio | Cris Charles</h1>
-                </span>
+    const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
-                {/* Hamburger Button */}
+    return (
+        <nav
+            className={`navbar navbar-expand-lg fixed-top shadow-sm border-bottom ${theme === 'light' ? 'navbar-blur navbar-light' : 'navbar-blur-dark navbar-dark'
+                }`}
+        >
+            <div className="container">
+                <a className="navbar-brand fw-bold" href="#home">
+                    Cris Charles
+                </a>
+
                 <button
-                    className="sm:hidden text-[#64FFDA] focus:outline-none"
-                    onClick={() => setIsOpen(!isOpen)}
+                    className="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
                 >
-                    {isOpen ? (
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M6 18L18 6M6 6l12 12"
-                            />
-                        </svg>
-                    ) : (
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h16M4 18h16"
-                            />
-                        </svg>
-                    )}
+                    <span className="navbar-toggler-icon"></span>
                 </button>
 
-                {/* Desktop Menu */}
-                <ul className="hidden sm:flex space-x-8">
-                    <li
-                        className="hover:text-[#52E0C4] transition-colors duration-200 cursor-pointer"
-                        onClick={() => scrollToSection("home")}
-                    >
-                        Home
-                    </li>
-                    <li
-                        className="hover:text-[#52E0C4] transition-colors duration-200 cursor-pointer"
-                        onClick={() => scrollToSection("projects")}
-                    >
-                        Projects
-                    </li>
-                    <li
-                        className="hover:text-[#52E0C4] transition-colors duration-200 cursor-pointer"
-                        onClick={() => scrollToSection("skills")}
-                    >
-                        Skills
-                    </li>
-                    <li
-                        className="hover:text-[#52E0C4] transition-colors duration-200 cursor-pointer"
-                        onClick={() => scrollToSection("contact")}
-                    >
-                        Contact
-                    </li>
-                </ul>
-            </div>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav ms-auto align-items-center">
+                        {navLinks.map((link) => (
+                            <li className="nav-item" key={link}>
+                                <a
+                                    className="nav-link"
+                                    href={`#${link}`}
+                                    aria-current="page"
+                                >
+                                    {capitalize(link)}
+                                </a>
+                            </li>
+                        ))}
 
-            {/* Mobile Dropdown */}
-            {isOpen && (
-                <ul className="sm:hidden flex flex-col items-center bg-[#112240] space-y-4 py-4 border-t border-[#233554] select-none">
-                    <li
-                        className="hover:text-[#52E0C4] transition-colors duration-800 cursor-pointer"
-                        onClick={() => {
-                            scrollToSection("home");
-                            setIsOpen(false);
-                        }}
-                    >
-                        Home
-                    </li>
-                    <li
-                        className="hover:text-[#52E0C4] transition-colors duration-200 cursor-pointer"
-                        onClick={() => {
-                            scrollToSection("projects");
-                            setIsOpen(false);
-                        }}
-                    >
-                        Projects
-                    </li>
-                    <li
-                        className="hover:text-[#52E0C4] transition-colors duration-200 cursor-pointer"
-                        onClick={() => scrollToSection("skills")}
-                    >
-                        Skills
-                    </li>
-                    <li
-                        className="hover:text-[#52E0C4] transition-colors duration-200 cursor-pointer"
-                        onClick={() => {
-                            scrollToSection("contact");
-                            setIsOpen(false);
-                        }}
-                    >
-                        Contact
-                    </li>
-                </ul>
-            )}
-        </header>
+                        {/* Theme Dropdown */}
+                        <li className="nav-item ms-3">
+                            <div className="dropdown">
+                                <button
+                                    className={`btn ${theme === 'light' ? 'btn-outline-dark' : 'btn-outline-light'
+                                        } dropdown-toggle d-flex align-items-center`}
+                                    type="button"
+                                    id="themeDropdown"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                    aria-label="Select theme"
+                                >
+                                    <span className="me-2">{modeIcons[mode]}</span>
+                                    {capitalize(mode)}
+                                </button>
+
+                                <ul
+                                    className="dropdown-menu dropdown-menu-end"
+                                    aria-labelledby="themeDropdown"
+                                >
+                                    {Object.keys(modeIcons).map((key) => (
+                                        <li key={key}>
+                                            <button
+                                                className={`dropdown-item ${mode === key ? 'active' : ''}`}
+                                                onClick={() => setMode(key)}
+                                            >
+                                                <span className="me-2">{modeIcons[key]}</span>
+                                                {capitalize(key)}
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     );
-}
+};
 
 export default Navbar;

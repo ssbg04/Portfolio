@@ -1,52 +1,58 @@
-import React from 'react'
+import React from 'react';
+import useTheme from '../hooks/useTheme';
 
-function Footer() {
+const Footer = () => {
+    const { theme } = useTheme();
 
-    const scrollToSection = (id) => document.getElementById(id) && window.scrollTo({ top: document.getElementById(id).offsetTop - 80, behavior: 'smooth' });
+    // Bootstrap hover-friendly link classes
+    const linkClass =
+        theme === 'light'
+            ? 'text-dark link-primary'   // dark text, blue hover
+            : 'text-light link-info';    // light text, light-blue hover
 
     return (
-        <footer
-            className="bg-[#112240] text-[#8892B0] flex flex-col items-center justify-center gap-3 sm:gap-8 select-none bottom-0 w-full text-center text-sm md:text-base py-4 px-6 left-0"
-            id="contact">
-            <p className="text-center sm:text-left md:text-base">
-                &copy; 2025 <span className="hover:text-[#64FFDA] hover:cursor-pointer font-semibold transition-colors duration-200"
-                    onClick={() => scrollToSection("home")}>
-                    Cris Charles</span>. All Rights Reserved.
-            </p>
+        <footer className={`text-center text-lg-start mt-auto border-top ${theme === 'light' ? 'bg-light text-dark' : 'bg-dark text-light'}`}>
+            <div className="container p-4">
+                <div className="row">
 
-            <ul className="flex flex-row justify-center gap-6 flex-wrap">
-                <li>
-                    <a
-                        href="https://github.com/ssbg04"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-[#64FFDA] hover:underline transition-colors duration-200"
-                    >
-                        Github
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="https://www.linkedin.com/in/cris-charles-garcia-187415303/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-[#64FFDA] hover:underline transition-colors duration-200"
-                    >
-                        LinkedIn
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="mailto:crischarlesgarcia345@example.com?subject=Project%20Inquiry"
-                        className="hover:text-[#64FFDA] hover:underline transition-colors duration-200"
-                    >
-                        Email
-                    </a>
-                </li>
-            </ul>
+                    {/* About */}
+                    <div className="col-lg-6 col-md-12 mb-4 mb-md-0">
+                        <h5 className="text-uppercase">Cris Charles</h5>
+                        <p>
+                            Passionate developer/designer. Let's build something amazing together.
+                        </p>
+                    </div>
+
+                    {/* Nav links */}
+                    <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 className="text-uppercase">Links</h5>
+                        <ul className="list-unstyled mb-0">
+                            <li><a href="#home" className={linkClass}>Home</a></li>
+                            <li><a href="#about" className={linkClass}>About</a></li>
+                            <li><a href="#projects" className={linkClass}>Projects</a></li>
+                            <li><a href="#contact" className={linkClass}>Contact</a></li>
+                        </ul>
+                    </div>
+
+                    {/* Contact info */}
+                    <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 className="text-uppercase">Contact</h5>
+                        <ul className="list-unstyled mb-0">
+                            <li><a href="mailto:crischarlesgarcia345@gmail.com" className={linkClass}>crischarlesgarcia345@gmail.com</a></li>
+                            <li><a href="tel:+639914970689" className={linkClass}>+63 991 4970 689</a></li>
+                            <li><a href="https://www.linkedin.com/in/cris-charles-garcia-187415303/" target="_blank" rel="noopener noreferrer" className={linkClass}>LinkedIn</a></li>
+                            <li><a href="https://github.com/ssbg04" target="_blank" rel="noopener noreferrer" className={linkClass}>GitHub</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div className={`text-center p-3 ${theme === 'light' ? 'bg-secondary text-light' : 'bg-black text-light'}`}>
+                © {new Date().getFullYear()} Cris Charles. All rights reserved.
+            </div>
         </footer>
+    );
+};
 
-    )
-}
-
-export default Footer
+export default Footer;
